@@ -25,6 +25,14 @@ body, html {
 }
 .counter{
     border: 1px solid var(--white);
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+}
+.counter > p{
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 2px;
 }
 .main-area{
     padding: 10px 30px;

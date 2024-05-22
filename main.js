@@ -47,3 +47,25 @@ hardButton.addEventListener('click', () => {
     buttonColoring();
 });
 
+
+
+const min = document.getElementById("min");
+const sec = document.getElementById("sec");
+
+let seconds = 10;
+
+
+
+const timer = setInterval(() => {
+    seconds--;
+    let minute = Math.floor(seconds/60).toString().padStart(2,"0");
+    let second = seconds.toString().padStart(2,"0");
+    min.textContent = minute;
+    sec.textContent = second;
+    console.log(`${minute} : ${second}`);
+
+    if (seconds == 0) {
+        clearInterval(timer);
+    }
+}, 1000);
+
