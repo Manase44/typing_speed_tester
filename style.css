@@ -20,7 +20,7 @@ html {
 .header {
   background-color: var(--secondary-color);
   width: 100vw;
-  padding: 10px 30px;
+  padding: 10px 7rem;
   display: flex;
   justify-content: space-between;
 }
@@ -29,9 +29,10 @@ html {
   background-color: var(--white);
   display: flex;
   align-items: center;
+  padding: 0.4rem 0.7rem;
 }
-.counter > p {
-  font-size: 18px;
+.counter > p{
+  font-size: 20px;
   font-weight: 500;
   letter-spacing: 2px;
 }
@@ -99,6 +100,9 @@ html {
   text-align: center;
   margin: 7px 0;
 }
+.error{
+    display: none;
+}
 .summary-output {
   display: flex;
   flex-direction: column;
@@ -115,4 +119,35 @@ html {
 }
 .recommendations > p {
   color: green;
+}
+
+
+@media screen and (max-width: 992px) {
+    .phase-one {
+        display: flex;
+        flex-direction: column;
+        margin-top: 0;
+    }
+    .stage-setting{
+        flex-direction: row;
+        align-items: center;
+        padding: 0.4rem;
+    }
+    .dummy-text {
+        height: 30vh;
+        overflow-y: hidden;
+      }
+      #text {
+        width: 70vw;
+      }
+}
+@media screen and (max-width: 768px) {
+    .main-area {
+        padding: 10px 0.6rem;
+    }
+}
+@media screen and (max-width: 576px){
+    .header{
+        padding: 10px 2rem;
+    }
 }
