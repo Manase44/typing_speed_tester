@@ -12,12 +12,76 @@
 body, html {
     font-family: "Roboto", sans-serif;
     overflow-x: hidden;
-}
-.app{
+    height: 100vh;
     background-color: var(--primary-color);
-    height: 400px;
 }
-.app2{
+.header{
     background-color: var(--secondary-color);
-    height: 400px;
+    width: 100vw;
+    padding: 10px 30px;
+}
+.main-area{
+    padding: 10px 30px;
+}
+.phase-one{
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+    margin-top: 10px;
+}
+.stage-setting{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    padding: 10px;
+    gap: 5px;
+}
+.stage-setting > button{
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+}
+.dummy-text{
+    border: 1px solid var(--secondary-color);
+    padding: 0.8rem;
+}
+.dummy-text > p{
+    text-align: justify;
+    line-height: 1.5rem;
+    font-size: 18px;
+}
+.form{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+#text{
+    width: 55vw;
+    outline: none;
+    border: 1px solid var(--secondary-color);
+    padding: 0.8rem;
+    font-size: 18px;
+}
+.error, .recommendations > p{
+    text-transform: uppercase;
+    color: rgb(206, 30, 30);
+    font-weight: 500;
+    text-align: center;
+    margin: 7px 0;
+}
+.summary-output{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.minor-summary{
+    display: flex;
+    gap: 0.5rem;
+}
+.word, .time{
+    display: grid;
+    place-items: center;
+
+}
+.recommendations > p{
+    color: green;
 }
