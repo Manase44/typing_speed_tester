@@ -3,6 +3,7 @@
 :root{
     --primary-color:#CAC0B3;
     --secondary-color:#001233;
+    --white:#fff;
 }
 *{
     padding: 0;
@@ -19,6 +20,11 @@ body, html {
     background-color: var(--secondary-color);
     width: 100vw;
     padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.counter{
+    border: 1px solid var(--white);
 }
 .main-area{
     padding: 10px 30px;
@@ -39,6 +45,13 @@ body, html {
 .stage-setting > button{
     padding: 0.4rem 0.8rem;
     cursor: pointer;
+    font-size: 15px;
+    font-weight: 400;
+}
+.active-stage{
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border: none;
 }
 .dummy-text{
     border: 1px solid var(--secondary-color);
