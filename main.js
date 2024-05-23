@@ -66,7 +66,7 @@ const removeError = () => {
   errorParagraph.style.display = "none";
 };
 
-let seconds = 20;
+let seconds = 4;
 
 const timer = () => {
   const counter = setInterval(() => {
@@ -123,15 +123,22 @@ const unwantedKeys = [
   "Insert",
   "Delete",
 ];
-let isListening = false;
+
+
+let clickListening = true;
+let keydownListening = false;
+
 inputDiv.addEventListener("click", () => {
-  isListening = true;
-  keypress();
+  if (clickListening) {
+    keydownListening = true;
+    keypress();
+    clickListening = false;
+  }
 });
 
 const keypress = () => {
   inputDiv.addEventListener("keydown", (event) => {
-    if (isListening) {
+    if (keydownListening) {
       let presseKey = event.key;
       if (!unwantedKeys.includes(presseKey)) {
         timer();
@@ -139,8 +146,12 @@ const keypress = () => {
       } else {
         displayError("please type using alphanumeric keys.");
       }
-
-      isListening = false;
+      keydownListening = false;
     }
   });
 };
+
+
+refreshButton.addEventListener('click', () => {
+  window.location.reload();
+})
