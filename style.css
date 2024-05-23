@@ -53,7 +53,7 @@ html {
   gap: 5px;
 }
 .stage-setting > button,
-#startbtn {
+#refreshbtn {
   padding: 0.4rem 0.8rem;
   cursor: pointer;
   font-size: 15px;
@@ -78,8 +78,11 @@ html {
   display: flex;
   justify-content: center;
 }
-#startbtn {
+#refreshbtn {
+  background-color: transparent;
+  padding: 0;
   border: none;
+  display: none;
 }
 .form {
   display: flex;
