@@ -89,6 +89,7 @@ html {
   width: 55vw;
   outline: none;
   border: 1px solid var(--secondary-color);
+  background-color: var(--white);
   padding: 0.8rem;
   font-size: 18px;
 }
