@@ -114,7 +114,7 @@ html {
 }
 .minor-summary {
   display: flex;
-  gap: 0.5rem;
+  gap: 3rem;
 }
 .word,
 .time {

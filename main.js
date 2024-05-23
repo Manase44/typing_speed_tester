@@ -56,6 +56,7 @@ const sec = document.getElementById("sec");
 const refreshButton = document.getElementById("refreshbtn");
 const inputDiv = document.getElementById("text");
 const errorParagraph = document.getElementById("error");
+const speedOutput = document.getElementById("speed");
 
 const displayError = (message) => {
   errorParagraph.style.display = "block";
@@ -65,8 +66,18 @@ const removeError = () => {
   errorParagraph.textContent = "";
   errorParagraph.style.display = "none";
 };
+const calculateWords = (sent) => {
+  let sentence = sent;
+  let sentenceArray = sentence.split(" ");
+  return sentenceArray.length;
+};
 
-let seconds = 4;
+const displayOutput = (num) => {
+  speedOutput.textContent = `Speed ${num}w/s`;
+  
+};
+
+let seconds = 10;
 
 const timer = () => {
   const counter = setInterval(() => {
@@ -79,13 +90,15 @@ const timer = () => {
       .padStart(2, "0");
     min.textContent = minute;
     sec.textContent = second;
-    console.log(`${minute} : ${second}`);
+    // console.log(`${minute} : ${second}`);
 
     if (seconds == 0) {
       clearInterval(counter);
       timeParagraph.textContent = "Time is over";
       inputDiv.disabled = true;
       refreshButton.style.display = "block";
+      let typedwords = calculateWords(inputDiv.value);
+      displayOutput(typedwords);
     }
   }, 1000);
 };
@@ -126,11 +139,10 @@ const unwantedKeys = [
 
 
 let clickListening = true;
-let keydownListening = false;
+let alreadyRunning = false;
 
 inputDiv.addEventListener("click", () => {
   if (clickListening) {
-    keydownListening = true;
     keypress();
     clickListening = false;
   }
@@ -138,15 +150,17 @@ inputDiv.addEventListener("click", () => {
 
 const keypress = () => {
   inputDiv.addEventListener("keydown", (event) => {
-    if (keydownListening) {
-      let presseKey = event.key;
-      if (!unwantedKeys.includes(presseKey)) {
+    let presseKey = event.key;
+    if (!unwantedKeys.includes(presseKey)) {
+      if (!alreadyRunning) {
         timer();
-        removeError();
-      } else {
+        alreadyRunning = true;
+      }
+      removeError();
+    } else {
+      if (!alreadyRunning) {
         displayError("please type using alphanumeric keys.");
       }
-      keydownListening = false;
     }
   });
 };
@@ -155,3 +169,11 @@ const keypress = () => {
 refreshButton.addEventListener('click', () => {
   window.location.reload();
 })
+
+
+
+// handling the math
+// let sentence = inputDiv.value;
+// let sentenceArray = sentence.split(" ");
+
+// console.log(sentenceArray.length);
